@@ -45,16 +45,16 @@ docker compose up -d --build
 
 # 4. Instale dependências
 
-docker compose exec app composer install
-
-# 5. Configure aplicação
-
 ```bash
-docker compose exec app php bash
+docker compose exec app bash
 ```
+
 ```bash
 composer install
 ```
+
+# 5. Configure aplicação
+
 ```bash
 php artisan key:generate
 ```
