@@ -71,8 +71,7 @@ php artisan db:seed
 ## 🌐 Acessos
 
 -   **Interface Web**: http://localhost:8000
--   **API Health**: http://localhost:8000/api/health
--   **PHPMyAdmin**: http://localhost:8080 (root/root)
+-   **PHPMyAdmin**: http://localhost:8080 (root/userpass)
 
 ## Testes
 
