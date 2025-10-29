@@ -12,6 +12,23 @@ services:
             - ./:/var/www
         depends_on:
             - redis
+            - db
+        networks:
+            - laravel
+
+    # Queue Worker para processar jobs
+    queue:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        working_dir: /var/www/
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - redis
+            - db
+        command: php artisan queue:work --verbose --tries=3 --timeout=1800
         networks:
             - laravel
 
@@ -35,8 +52,6 @@ services:
         environment:
             MYSQL_DATABASE: ${DB_DATABASE:-laravel}
             MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
-            MYSQL_PASSWORD: ${DB_PASSWORD:-userpass}
-            MYSQL_USER: ${DB_USERNAME:-username}
         volumes:
             - ./.docker/mysql/dbdata:/var/lib/mysql
         ports:

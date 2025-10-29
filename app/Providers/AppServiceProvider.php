@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\FreightImportService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +12,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Registrar FreightImportService como singleton
+        $this->app->singleton(FreightImportService::class, function ($app) {
+            return new FreightImportService();
+        });
     }
 
     /**
