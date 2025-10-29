@@ -23,21 +23,33 @@ Sistema Laravel 11 para importação de CSV com processamento assíncrono.
 
 ### Comandos
 
-```bash
 # 1. Clone
+
+```bash
 git clone https://github.com/Coimbra777/Testello.git
-cd app-laravel
+```
+```bash
+cd Testello
+```
 
 # 2. Configure
+
+```bash
 cp .env.example .env
+```
 
 # 3. Suba containers
+```bash
 docker compose up -d --build
+```
 
 # 4. Instale dependências
+
 docker compose exec app composer install
 
 # 5. Configure aplicação
+
+```bash
 docker compose exec app php artisan key:generate
 docker compose exec app php artisan migrate
 docker compose exec app php artisan db:seed
