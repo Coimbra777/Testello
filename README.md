@@ -59,7 +59,7 @@ composer install
 php artisan key:generate
 ```
 ```bash
-app php artisan migrate
+php artisan migrate
 ```
 
 ## Antes de rodar seeders, teste importando o arquivo via interface web
